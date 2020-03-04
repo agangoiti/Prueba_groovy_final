@@ -5,7 +5,8 @@ pipeline {
         cron('* * * * *')
     }
     tools {
-        maven 'LocalMaven323' 
+        maven 'LocalMaven323'
+	jdk 'LocalJDK8'
     }
     stages {
 	
