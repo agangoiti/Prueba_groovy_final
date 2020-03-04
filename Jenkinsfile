@@ -1,8 +1,5 @@
 pipeline {
 	
-   def metodo(texto) { 
-   echo texto
-	}  
    // agent none
     agent any
     triggers {
@@ -15,6 +12,9 @@ pipeline {
     stages {
 	
 	stage('Paquetizar mvn') {
+		def metodo(texto) { 
+   			echo texto
+	}  
 	    agent {
                    label "win"
                 }
