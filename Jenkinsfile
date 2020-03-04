@@ -11,14 +11,14 @@ pipeline {
     }
     stages {
 	
-	stage('Paquetizar mvn') {
-		def metodo(texto) { 
-   			echo texto
-	}  
+	stage('Paquetizar mvn') {  
 	    agent {
                    label "win"
                 }
              steps {
+		     def metodo(texto) { 
+   			echo texto
+		}
               	     git 'https://github.com/agangoiti/curso_integracion_continua.git'		
 		     bat 'mvn clean test package'
                 }
