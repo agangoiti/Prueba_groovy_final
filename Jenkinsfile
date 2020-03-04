@@ -1,37 +1,26 @@
 pipeline {
    // agent none
     agent any
+    triggers {
+        cron('* * * * *')
+    }
+    tools {
+        maven 'LocalMaven323' 
+    }
     stages {
 	
-	stage('Non-Parallel Stage') {
+	stage('Paquetizar mvn') {
 	    agent {
-                        label "win"
+                   label "win"
                 }
-        steps {
-                echo 'This stage will be executed first'
+             steps {
+              		bat 'mvn clean test package'
                 }
         }
-
-	
-        stage('Run Tests') {
-            parallel {
-                stage('Test On Windows') {
-                    steps {
-			sleep 10
-                        echo "Task1 on Parallel"
-                    }
-                    
-                }
-                stage('Test On Master') {
-                    agent {
-                        label "mock"
-                    }
-                    steps {
-			    	sleep 10
-				echo "Task2 on Parallel"
-			}
-                }
-            }
-        }
+	post { 
+        	failure { 
+           		echo 'Failure Cron'
+        	}
+    	}
     }
 }
