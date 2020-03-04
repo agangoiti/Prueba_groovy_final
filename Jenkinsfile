@@ -24,17 +24,7 @@ pipeline {
            		echo 'Failure Cron'
         	}
     	     }
-	     agent {
-                   label "win"
-                }
-             steps {
-              	   metodo("hola")
-                }
-	     post { 
-        	failure { 
-           		echo 'Failure Metodo'
-        	}
-    	     }
+	   }
 	}
 
     }
