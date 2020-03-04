@@ -15,7 +15,8 @@ pipeline {
                    label "win"
                 }
              steps {
-              		bat 'mvn clean test package'
+              	     git 'https://github.com/agangoiti/curso_integracion_continua.git'		
+		     bat 'mvn clean test package'
                 }
 	     post { 
         	failure { 
