@@ -16,11 +16,12 @@ pipeline {
              steps {
               		bat 'mvn clean test package'
                 }
-        }
-	post { 
+	     post { 
         	failure { 
            		echo 'Failure Cron'
         	}
-    	}
+    	     }
+        }
+
     }
 }
