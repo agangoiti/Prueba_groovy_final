@@ -38,8 +38,7 @@ pipeline {
            		echo 'Failure Metodo'
         	}
     	     }
-        }
-          }
+	}
 
     }
 }
